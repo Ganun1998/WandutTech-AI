@@ -1,0 +1,19 @@
+/* App.css */
+.app {
+    display: flex; /* Use flexbox for layout */
+  }
+  
+   .sidebar {
+    width: 200px; /* Set a fixed width for the sidebar */
+   }
+  
+  .main {
+    flex-grow: 1; /* Allow the main content to take the remaining space */
+  }
+
+  @media (max-width: 600px) {
+     .sidebar{
+      width: 110px;
+     }
+  }
+    
