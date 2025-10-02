@@ -113,6 +113,7 @@
 .search-box input{
     flex: 1;
     background: transparent;
+    color: #4b90ff;
     border: none;
     outline: none;
     max-height: 200px; 

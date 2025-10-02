@@ -13,7 +13,7 @@
 
   @media (max-width: 600px) {
      .sidebar{
-      width: 110px;
+      display: none;
      }
   }
     

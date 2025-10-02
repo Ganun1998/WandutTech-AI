@@ -27,15 +27,12 @@ const Main = () => {
   const [inputHeight, setInputHeight] = useState(40);
   const [isRecording, setIsRecording] = useState(false);
   const [userName, setUserName] = useState('');
-  const [emailVisible, setEmailVisible] = useState(false);
-  const [userEmail, setUserEmail] = useState('');
 
   useEffect(() => {
     const email = localStorage.getItem('userEmail');
     if (email) {
       const name = email.split('@')[0];
       setUserName(name.charAt(0).toUpperCase() + name.slice(1));
-      setUserEmail(email);
     }
   }, []);
 
@@ -53,11 +50,9 @@ const Main = () => {
   };
 
   const sendFileForAnalysis = (file) => {
-    // Create a FormData object and append the file
     const formData = new FormData();
     formData.append('file', file);
 
-    // Send the file to your AI backend (replace with your actual endpoint)
     fetch('YOUR_API_ENDPOINT', {
       method: 'POST',
       body: formData,
@@ -65,7 +60,6 @@ const Main = () => {
     .then(response => response.json())
     .then(data => {
       console.log('Success:', data);
-      // You may want to set the result data here to display it
     })
     .catch((error) => {
       console.error('Error:', error);
@@ -136,10 +130,6 @@ const Main = () => {
     setIsRecording(false);
   };
 
-  const toggleEmailVisibility = () => {
-    setEmailVisible(!emailVisible);
-  };
-
   return (
     <div className="main">
       <div className="nav">
@@ -147,10 +137,8 @@ const Main = () => {
         <img 
           src={userImage || user_icon} 
           alt="User icon" 
-          onClick={toggleEmailVisibility}
           style={{ cursor: 'pointer' }} 
         />
-        {emailVisible && <p className="user-email">{userEmail}</p>}
       </div>
 
       <div className="main-container">
